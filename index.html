@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="picture/star.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>BINI FAN PAGE</title>
+</head>
+
+<body class="bg-[url('picture/bg-main.webp')] bg-fixed bg-center">
+  <div class="relative">
+    <div class="flex items-center justify-between py-2 px-5 fixed w-full top-0 z-50 lg:px-56  ">
+      <img src="picture/bini_logo.webp" alt="">
+      <div class="flex items-center gap-5">
+        <p id="menu_text" class="text-white text-sm">Open</p>
+        <button id="menu_btn" class="w-5">
+          <i class="fa-solid fa-bars text-2xl text-white cursor-pointer"></i>
+        </button>
+      </div>
+    </div>
+
+
+    <div id="play-pause-btn"
+      class="absolute top-2/4 left-1/2 transform -translate-x-1/2 w-14 h-14 flex items-center justify-center rounded-full bg-none border-2 border-white z-50 hover:bg-[#219ebc] hover:border-[#219ebc] transition duration-300 ease-in-out cursor-pointer">
+      <i class="fa-solid fa-play text-2xl text-white"></i>
+    </div>
+    <div class="flex justify-center items-center">
+      <h2 class="absolute top-2/4 mt-16 text-white text-center text-sm" id="textMusicInfo">
+        Click menu to see music player
+      </h2>
+    </div>
+
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-30 z-40 hidden"></div>
+
+    <div id="menuCard"
+      class="fixed top-14 right-0 rounded-3xl px-7 py-5 shadow-2xl bg-white ml-4 mr-4 mb-12 lg:mr-56 z-50 hidden">
+    </div>
+
+
+    <div class="hidden lg:block lg:absolute lg:left-10 lg:bottom-5">
+      <img src="picture/flower.webp" alt="" class="animate-spin">
+      <p class="text-white font-black">BINI Poll</p>
+    </div>
+
+    <img src="picture/mobile_bg_view.webp" alt="Bini Background Cherry On Top"
+      class="w-full h-screen object-cover md:hidden">
+    <img src="picture/laptop_bg_view.webp" alt="Bini Background Cherry On Top"
+      class="w-full h-screen object-cover hidden md:block">
+    <div class="flex items-center justify-center relative">
+      <div class="absolute bottom-20 px-2 py-5 rounded-full bg-none border-2 border-white">
+        <i class="fa-solid fa-arrow-down-long text-xl text-white animate-bounce"></i>
+      </div>
+      <button
+        class="py-2 px-7 hover:bg-white hover:text-[#219ebc] rounded-full absolute bottom-5 bg-sky-500 text-white transition duration-300 ease-in-out">
+        Exclusive Membership
+      </button>
+    </div>
+  </div>
+
+  <div class="h-screen p-5 flex flex-col items-center justify-center lg:block relative" id="profileSection">
+    <h1 class="text-3xl font-bold mb-8 text-center lg:hidden">
+      About
+    </h1>
+    <div class="relative">
+      <div id="carousel" class="relative overflow-hidden mt-8"></div>
+      <img src="picture/soft_star.png" alt="star"
+        class="absolute top-2 -left-5 w-12 animate-spin-slow lg:left-52 lg:top-4">
+      <img src="picture/outline_star.png" alt="star" class="absolute -bottom-4 -right-5 w-12 lg:right-52 lg:-bottom-5">
+      <img src="picture/heart.png" alt="star" class="absolute top-10 right-2 w-6 animate-pulse lg:right-60 lg:top-14">
+    </div>
+    <div class="flex items-center justify-center gap-20 mt-5 lg:mt-12">
+      <button id="prev-button"
+        class="h-11 w-11 bg-blue-500 text-white rounded-full hover:transform hover:-translate-x-2 transition-all duration-300 ease-in-out hover:opacity-70">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div id="countedIndex" class="absolute left-1/2 transform -translate-x-1/2 w-[100px] text-center text-sm"></div>
+      <button id="next-button"
+        class="h-11 w-11 bg-blue-500 text-white rounded-full hover:transform hover:translate-x-2 transition-all duration-300 ease-in-out hover:opacity-70">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="h-screen p-5 flex flex-col items-center justify-center relative" id="musicSection">
+    <h1 class="text-3xl font-bold mb-8 text-center">
+      Discography
+    </h1>
+    <div class="relative">
+      <div id="albumCarousel" class="relative overflow-hidden mt-8 w-full max-w-4xl"></div>
+      <img src="picture/soft_star.png" alt="star" class="absolute top-1 -left-5 w-12 animate-spin-slow ">
+      <img src="picture/outline_star.png" alt="star" class="absolute -bottom-7 -right-5 w-12 lg:-bottom-7">
+      <img src="picture/heart.png" alt="star" class="absolute top-[3rem] right-[1rem] w-6 animate-pulse">
+    </div>
+
+    <div class="flex items-center justify-center gap-20 mt-5 lg:mt-12">
+      <button id="prev-disco-button"
+        class="h-11 w-11 bg-blue-500 text-white rounded-full hover:transform hover:-translate-x-2 transition-all duration-300 ease-in-out hover:opacity-70">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div id="countedIndexDisco" class="absolute left-1/2 transform -translate-x-1/2 w-[100px] text-center text-sm">
+      </div>
+
+      <button id="next-disco-button"
+        class="h-11 w-11 bg-blue-500 text-white rounded-full hover:transform hover:translate-x-2 transition-all duration-300 ease-in-out hover:opacity-70">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="h-screen p-5 flex flex-col items-center justify-center lg:block relative" id="videosSection">
+    <!-- Title Above the Video -->
+    <h1 class="text-3xl font-bold mb-8 text-center">
+      Videos
+    </h1>
+
+    <!-- Responsive YouTube Embed -->
+    <div
+      class="relative w-full max-w-lg lg:max-w-6xl mx-auto pb-[56.25%] lg:pb-[42.2%] h-0 shadow-lg rounded-lg overflow-hidden">
+      <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/wufUX5P2Ds8"
+        title="BINI | &#39;Cherry On Top&#39; Official Music Video" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  </div>
+
+  <div class="p-5 flex flex-col items-center justify-center relative md:h-screen" id="gallerySection">
+    <h1 class="text-3xl font-bold mb-8 text-center">
+      Gallery
+    </h1>
+
+    <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 p-2">
+      <img src="picture/bini_aiah.webp" alt="Image 1" class="gallery-img cursor-pointer rounded-xl" />
+      <img src="picture/bini_colet.webp" alt="Image 2" class="gallery-img cursor-pointer rounded-xl" />
+      <img src="picture/bini_gwen.webp" alt="Image 3" class="gallery-img cursor-pointer rounded-xl" />
+      <img src="picture/bini_jhoanna.webp" alt="Image 4" class="gallery-img cursor-pointer rounded-xl" />
+      <img src="picture/bini_maloi.webp" alt="Image 5" class="gallery-img cursor-pointer rounded-xl" />
+      <img src="picture/bini_mikha.webp" alt="Image 6" class="gallery-img cursor-pointer rounded-xl" />
+      <img src="picture/bini_sheena.webp" alt="Image 7" class="gallery-img cursor-pointer rounded-xl" />
+      <img src="picture/bini_stacey.webp" alt="Image 8" class="gallery-img cursor-pointer rounded-xl" />
+    </div>
+
+    <div id="imageModal" class="modal hidden">
+      <span id="closeModal" class="close">&times;</span>
+      <img id="modalImage" class="modal-content" />
+    </div>
+  </div>
+
+  <div class="h-screen p-5 flex flex-col items-center justify-center relative" id="shopSection">
+    <div class="text-center max-w-lg lg:max-w-3xl">
+      <h1 class="text-3xl font-bold mb-8">Shop</h1>
+      <h2 class="text-md lg:text-xl font-semibold text-gray-700 mb-4">Be an exclusive member now!</h2>
+      <p class="text-gray-600 mb-6 text-sm lg:text-base">Watch all the latest exclusive content now by being an
+        exclusive
+        member! Just click
+        the exclusive membership button to know more!</p>
+      <img src="picture/bg_shop.webp" alt="Exclusive Content"
+        class="w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto mb-6 rounded-lg shadow-lg">
+      <button
+        class="text-white bg-sky-500 rounded-full py-2 px-6 font-semibold hover:bg-sky-600 transition duration-300 text-sm">
+        Buy an Exclusive Membership
+      </button>
+    </div>
+  </div>
+
+
+
+
+  <div class="p-5 flex flex-col items-center justify-center relative md:h-screen" id="eventsSection">
+    <h1 class="text-3xl font-bold mb-8 text-center">
+      Events
+    </h1>
+
+    <div id="eventsMain" class="relative overflow-hidden mt-8 w-full max-w-4xl"></div>
+  </div>
+
+  <div class="h-screen p-5 flex flex-col items-center justify-center relative">
+    <h1 class="text-3xl font-bold mb-8 text-center">
+      Subscribe to Our Newsletter
+    </h1>
+
+    <div
+      class="flex flex-col w-full max-w-md md:max-w-lg gap-6 md:gap-8 bg-white/80 backdrop-blur-lg p-6 md:p-8 rounded-2xl shadow-lg"
+      id="subcribeSection">
+      <h2 class="text-base font-medium text-gray-700 text-center md:text-left">
+        Sign up below for updates about new releases, ticket pre-sales, and exclusive events from BINI.
+      </h2>
+
+      <div class="flex flex-col gap-4 md:gap-6">
+        <div class="w-full flex flex-col gap-2">
+          <label class="text-gray-600 text-sm font-semibold" for="email">Email Address</label>
+          <input id="email" type="email" placeholder="Enter your email address"
+            class="bg-white py-3 px-4 rounded-lg border-2 border-slate-300 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition duration-200">
+        </div>
+
+        <div class="w-full flex flex-col gap-2">
+          <label class="text-gray-600 text-sm font-semibold" for="name">Full Name (Optional)</label>
+          <input id="name" type="text" placeholder="Enter your full name"
+            class="bg-white py-3 px-4 rounded-lg border-2 border-slate-300 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition duration-200">
+        </div>
+
+        <div class="flex flex-col w-full gap-4 mt-4">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="terms" class="mt-1">
+            <label for="terms" class="text-gray-600 text-sm">
+              I confirm that I have read and agree to the Terms and Conditions.
+            </label>
+          </div>
+          <button class="text-white bg-sky-500 rounded-full py-3 font-bold hover:bg-sky-600 transition duration-200">
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <footer class="p-8 lg:p-12 bg-white border-t border-sky-500">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-6 text-left">
+      <div>
+        <p class="text-gray-600 hover:text-gray-800 cursor-pointer text-sm">NPC Seal of Registration</p>
+      </div>
+      <div>
+        <p class="text-gray-600 hover:text-gray-800 cursor-pointer text-sm">Terms & Conditions</p>
+        <p class="text-gray-600 hover:text-gray-800 cursor-pointer text-sm">Privacy Policy</p>
+      </div>
+      <div>
+        <p class="text-gray-600 hover:text-gray-800 cursor-pointer text-sm">Do Not Sell Personal Information</p>
+      </div>
+      <div>
+        <p class="text-gray-600 hover:text-gray-800 cursor-pointer text-sm">© 2024 ABS-CBN Corporation. All Rights
+          Reserved.</p>
+      </div>
+    </div>
+    <div>
+      <p class="text-gray-600 hover:text-gray-800 cursor-pointer text-sm text-center mt-10">Created by: Allen😀</p>
+    </div>
+  </footer>
+
+
+  <!-- <script src="/script.js"></script> -->
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
